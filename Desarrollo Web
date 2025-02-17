@@ -1,0 +1,13 @@
+from flask import Flask
+app = Flask(_name_)
+
+@app.route('/')
+def principal():
+    return "<h1>¡LA CASA DEL MARKES LES DA LA BIENVENIDA!</h1>"
+
+@app.route('/usuario/<nombre>')
+def usuario(nombre):
+    return "<h2>HOLA {} , HOLA </h2>".format (nombre)
+
+if _name_ == '_main_':
+    app.run(debug=True)
