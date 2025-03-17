@@ -1,0 +1,72 @@
+sing System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> catalogo = new List<string>
+        {
+            "Revista Programación y Desarrollo",
+            "Revista de Tecnologías Emergentes",
+            "Revista de Inteligencia Artificial y Machine Learning",
+            "Revista de Ciberseguridad y Privacidad",
+            "Revista de Computación Cuántica",
+            "Revista de Big Data y Análisis de Datos",
+            "Revista de Software y Herramientas de Desarrollo",
+            "Revista de Redes y Comunicaciones",
+            "Revista de Innovación Tecnológica",
+            "Revista de Sistemas Operativos"
+        };
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Catálogo de Revistas");
+            Console.WriteLine("1. Buscar un título");
+            Console.WriteLine("2. Salir");
+            Console.Write("Elija una opción: ");
+            string opcion = Console.ReadLine();
+
+            if (opcion == "1")
+            {
+                Console.Write("Ingrese el título a buscar: ");
+                string tituloABuscar = Console.ReadLine();
+                bool encontrado = BuscarTitulo(catalogo, tituloABuscar);
+
+                if (encontrado)
+                {
+                    Console.WriteLine("Título encontrado.");
+                }
+                else
+                {
+                    Console.WriteLine("Título no encontrado.");
+                }
+            }
+            else if (opcion == "2")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Opción no válida.");
+            }
+
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
+        }
+    }
+
+    static bool BuscarTitulo(List<string> catalogo, string titulo)
+    {
+        // Búsqueda iterativa
+        foreach (var item in catalogo)
+        {
+            if (item.Equals(titulo, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
